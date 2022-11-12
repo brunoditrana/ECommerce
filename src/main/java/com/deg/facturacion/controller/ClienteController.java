@@ -10,8 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@RequestMapping(path = "api/facturacion") //Definiendo la base, directorio raiz
+@RequestMapping(path = "api/cliente") //Definiendo la base, directorio raiz
 @RestController
 public class ClienteController {
 
@@ -27,13 +28,23 @@ public class ClienteController {
 
     //Endpoint para consultar en la base
     @GetMapping("/")
-        public ResponseEntity<List<ClienteResponse>> findAll(){
+        public ResponseEntity<List<ClienteResponse>> find(){
         return new ResponseEntity<>(this.clienteService.findAll(), HttpStatus.OK);
+    }
+
+    //Buscar por ID
+    @GetMapping("/{id}")
+    public ResponseEntity<ClienteResponse> findById(@PathVariable("id") Long id){
+        Optional<Cliente> optionalCliente = clienteService.findById(id);
+        if(optionalCliente.isPresent()){
+            return new ResponseEntity(this.clienteService.findById(id), HttpStatus.OK);
+        }
+       return ResponseEntity.notFound().build();
     }
 
     //Endpoint para actualizar datos
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> update(@RequestBody Cliente clienteUpdate, @PathVariable Long id){
+    public ResponseEntity<Cliente> update(@RequestBody Cliente clienteUpdate, @PathVariable("id") Long id){
         return new ResponseEntity<>(this.clienteService.update(clienteUpdate, id),HttpStatus.OK );
     }
 }

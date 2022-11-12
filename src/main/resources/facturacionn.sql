@@ -47,6 +47,9 @@ VALUES( 1, 123123, "bruno", "ditrana" );
 insert into cliente
 values( 4, "1212122", "Matias","Gomez","1950-10-03");
 
+insert into cliente
+values( 5, "1111111", "Lionel","Gomez","1999-6-03");
+
 //Venta
 insert into venta
 values(1, "2004-10-03", "1500", 1 );

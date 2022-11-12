@@ -1,6 +1,7 @@
 package com.deg.facturacion.service;
 
 import ch.qos.logback.core.net.server.Client;
+import com.deg.facturacion.exception.ResourceAlreadyExistsException;
 import com.deg.facturacion.model.Cliente;
 import com.deg.facturacion.repository.ClienteRepository;
 import com.deg.facturacion.response.ClienteResponse;
@@ -17,7 +18,7 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     //CREAR UN NUEVO CLIENTE
-    public Cliente create (Cliente newCliente){
+    public Cliente create (Cliente newCliente) {
         return this.clienteRepository.save(newCliente);
     }
 
@@ -55,6 +56,10 @@ public class ClienteService {
             return null;
 
     }
+        // Buscar por id
+    public Optional<Cliente> findById(Long id){
+        return this.clienteRepository.findById(id);
+    }
 
     //ACTUALIZAR DATOS DE UN CLIENTE
     public Cliente update(Cliente cliente,Long id)  {   // throws ResourceNotFoundException
@@ -63,7 +68,7 @@ public class ClienteService {
             Cliente cli = clienteBD.get();
             cli.setApellido(cliente.getApellido());
             cli.setNombre(cliente.getNombre());
-            return this.clienteRepository.save(cli);
+            return create(cli);
         }else {
             return null;
             //throw new ResourceNotFoundException("El cliente no existe");
