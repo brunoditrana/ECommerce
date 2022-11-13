@@ -39,7 +39,7 @@ public class VentaService {
             ventaResponse.setId(venta.getId());
             ventaResponse.setFecha_alta(venta.getFecha_alta());
             ventaResponse.setTotal(venta.getTotal());
-            ventaResponse.setDetalleVentas(venta.getDetalleVentas());
+
 
             response.add(ventaResponse);
         }

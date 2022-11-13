@@ -16,10 +16,10 @@ public class ProductoResponse {
     private String descripcion;
 
 
-    private Double precioCompra;
+    private Double precio_compra;
 
 
-    private Double precioVenta;
+    private Double precio_venta;
 
 
     private Integer stock;
@@ -28,7 +28,7 @@ public class ProductoResponse {
     private Date fecha_alta;
 
 
-    private List<DetalleVenta> detalleVentas;
+   // private List<DetalleVenta> detalleVentas;
 
 
 }

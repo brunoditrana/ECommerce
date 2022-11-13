@@ -61,6 +61,7 @@ public class ClienteService {
         return this.clienteRepository.findById(id);
     }
 
+
     //ACTUALIZAR DATOS DE UN CLIENTE
     public Cliente update(Cliente cliente,Long id)  {   // throws ResourceNotFoundException
         Optional<Cliente> clienteBD = this.clienteRepository.findById(id);

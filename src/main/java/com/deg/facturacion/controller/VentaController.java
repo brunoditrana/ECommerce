@@ -27,7 +27,7 @@ public class VentaController {
 
     //Endpoint para consultar en la base
     @GetMapping("/")
-    public ResponseEntity<List<VentaResponse>> findAll(){
+    public ResponseEntity<List<VentaResponse>> find(){
         return new ResponseEntity<>(this.ventaService.findAll(), HttpStatus.OK);
     }
 

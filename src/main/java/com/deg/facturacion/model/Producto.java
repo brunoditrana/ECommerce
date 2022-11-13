@@ -17,11 +17,11 @@ public class Producto {
     @Column
     private String descripcion;
 
-    @Column(name = "precioCompra")
-    private Double precioCompra;
+    @Column
+    private Double precio_compra;
 
-    @Column(name = "precioVenta")
-    private Double precioVenta;
+    @Column
+    private Double precio_venta;
 
     @Column
     private Integer stock;

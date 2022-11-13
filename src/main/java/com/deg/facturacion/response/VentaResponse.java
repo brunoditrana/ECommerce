@@ -23,10 +23,10 @@ public class VentaResponse {
     private Double total;
 
 
-    private Cliente cliente;
+    private Cliente cliente_id;
 
 
-    private List<DetalleVenta> detalleVentas;
+   //private List<DetalleVenta> detalleVentas;
 
 
 }
