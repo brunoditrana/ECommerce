@@ -23,7 +23,7 @@ public class ClienteController {
     //Endpoint para crear un nuevo Cliente
     @PostMapping("/")
     public ResponseEntity<Cliente> create(@RequestBody Cliente cliente){
-        return new ResponseEntity<>(this.clienteService.create(cliente), HttpStatus.OK );
+        return new ResponseEntity<>(this.clienteService.create(cliente), HttpStatus.OK);
     }
 
     //Endpoint para consultar en la base
@@ -34,7 +34,7 @@ public class ClienteController {
 
     //Buscar por ID
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteResponse> findById(@PathVariable("id") Long id){
+    public ResponseEntity<Cliente> findById(@PathVariable("id") Long id){
         Optional<Cliente> optionalCliente = clienteService.findById(id);
         if(optionalCliente.isPresent()){
             return new ResponseEntity(this.clienteService.findById(id), HttpStatus.OK);

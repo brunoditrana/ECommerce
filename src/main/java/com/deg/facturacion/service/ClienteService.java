@@ -18,7 +18,7 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     //CREAR UN NUEVO CLIENTE
-    public Cliente create (Cliente newCliente) {
+    public Cliente create(Cliente newCliente) {
         return this.clienteRepository.save(newCliente);
     }
 
@@ -57,10 +57,12 @@ public class ClienteService {
 
     }
         // Buscar por id
-    public Optional<Cliente> findById(Long id){
-        return this.clienteRepository.findById(id);
-    }
+    public Optional<Cliente> findById(Long id) {
 
+            return this.clienteRepository.findById(id);
+
+
+    }
 
     //ACTUALIZAR DATOS DE UN CLIENTE
     public Cliente update(Cliente cliente,Long id)  {   // throws ResourceNotFoundException

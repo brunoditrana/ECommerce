@@ -13,7 +13,7 @@ import java.util.List;
 public class Cliente {
 
     @Id
-    @GeneratedValue                     //Al ID lo genera la base de datos NO aca(para eso esta linea)
+    @GeneratedValue                    //Al ID lo genera la base de datos NO aca(para eso esta linea)
     private Long id;
 
     //MAPEO
@@ -29,8 +29,8 @@ public class Cliente {
     @Column(name = "fecha_nacimiento")
     private Date fecha_nacimiento;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Venta> ventas;
+    //@OneToMany(mappedBy = "venta_id")
+   // private List<Venta> ventas;
 
 
 }

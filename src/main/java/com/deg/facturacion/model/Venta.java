@@ -25,8 +25,8 @@ public class Venta {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "venta")
-    private List<DetalleVenta> detalleVentas;
+    //@OneToMany(mappedBy = "venta")
+    //private List<DetalleVenta> detalleVentas;
 
 
 }

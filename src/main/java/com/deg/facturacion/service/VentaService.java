@@ -24,11 +24,8 @@ public class VentaService {
         return this.ventaRepository.save(newVenta);
     }
 
-    //Eliminar una venta
-    public void delete(Long id){
-        this.ventaRepository.deleteById(id);
+    //Bucar por id FALTA
 
-    }
     //LEER O BUSCAR PERSONAS
     public List<VentaResponse> findAll(){
 

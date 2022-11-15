@@ -3,12 +3,12 @@ create database facturacion;
 use facturacion;
 
 CREATE TABLE cliente (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    dni VARCHAR(11) NOT NULL,
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(45) NOT NULL,
-    fecha_nacimiento DATE,
-   
+  id int NOT NULL AUTO_INCREMENT,
+  dni varchar(11) NOT NULL,
+  nombre varchar(100) NOT NULL,
+  apellido varchar(45) NOT NULL,
+  fecha_nacimiento date DEFAULT NULL,
+  PRIMARY KEY (id)
 );
 
 
