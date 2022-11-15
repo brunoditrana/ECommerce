@@ -23,13 +23,8 @@ public class ProductoService {
 
     // Crear un Producto
 
-    public Producto create(Producto newproducto) throws ResourceAlreadyExistsException{
-       Optional<Producto> product = this.productoRepository.findById(newproducto.getId());
-       if (product.isPresent())
-        throw new ResourceAlreadyExistsException("El producto ya existe");
-       else {
-           return this.productoRepository.save(newproducto);
-       }
+    public Producto create(Producto newProducto) {
+        return this.productoRepository.save(newProducto);
     }
 
     //BUSCAR UN PRODUCTO
@@ -53,7 +48,7 @@ public class ProductoService {
     }
 
 
-    //Actualizar un producto
+    //ACTUALIZAR UN PRODUCTO
     public Producto update(Producto updateProducto, Long id) throws ResourceNotFoundException {
 
         if( id <= 0){
@@ -75,9 +70,22 @@ public class ProductoService {
 
         return null;
 
-
-        //ELIMINAR UN PRODUCTO
-        //BUSCAR POR ID
     }
+        //ELIMINAR UN PRODUCTO
+        public void delete(Long id){
+            this.productoRepository.deleteById(id);
+
+        }
+
+
+
+        //BUSCAR POR ID
+        public Optional<Producto> findById(Long id) {
+
+            return this.productoRepository.findById(id);
+
+
+        }
+
 
 }

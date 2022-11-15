@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VentaService {
@@ -24,7 +25,13 @@ public class VentaService {
         return this.ventaRepository.save(newVenta);
     }
 
-    //Bucar por id FALTA
+    // BUSCAR POR ID
+    public Optional<Venta> findById(Long id) {
+
+        return this.ventaRepository.findById(id);
+
+
+    }
 
     //LEER O BUSCAR PERSONAS
     public List<VentaResponse> findAll(){

@@ -11,7 +11,7 @@ import java.util.List;
 public class Producto {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -29,8 +29,8 @@ public class Producto {
     @Column(name = "fecha_alta")
     private Date fecha_alta;
 
-    @OneToMany(mappedBy = "producto")
-    private List<DetalleVenta> detalleVentas;
+   // @OneToMany(mappedBy = "producto")
+    // private List<DetalleVenta> detalleVentas;
 
 
 }

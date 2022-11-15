@@ -30,7 +30,7 @@ public class Cliente {
     private Date fecha_nacimiento;
 
     //@OneToMany(mappedBy = "venta_id")
-   // private List<Venta> ventas;
+    //private List<Venta> ventas;
 
 
 }

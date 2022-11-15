@@ -29,6 +29,6 @@ public class ClienteResponse {
    private Integer edad;
 
 
-  // private List<VentaResponse> ventas;
+  //private List<VentaResponse> ventas;
 
 }

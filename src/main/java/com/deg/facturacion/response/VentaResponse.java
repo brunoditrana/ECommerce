@@ -26,7 +26,7 @@ public class VentaResponse {
     private Cliente cliente_id;
 
 
-   //private List<DetalleVenta> detalleVentas;
+   private List<DetalleVenta> detalleVentas;
 
 
 }

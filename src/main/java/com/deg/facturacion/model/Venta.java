@@ -12,7 +12,7 @@ import java.util.List;
 public class Venta {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "fecha_alta")
@@ -25,8 +25,8 @@ public class Venta {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    //@OneToMany(mappedBy = "venta")
-    //private List<DetalleVenta> detalleVentas;
+    @OneToMany(mappedBy = "venta")
+    private List<DetalleVenta> detalleVentas;
 
 
 }
