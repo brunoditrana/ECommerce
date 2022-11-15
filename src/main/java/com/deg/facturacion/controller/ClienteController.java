@@ -1,6 +1,7 @@
 package com.deg.facturacion.controller;
 
 
+import com.deg.facturacion.exception.ResourceNotFoundException;
 import com.deg.facturacion.model.Cliente;
 import com.deg.facturacion.response.ClienteResponse;
 import com.deg.facturacion.service.ClienteService;
@@ -44,7 +45,7 @@ public class ClienteController {
 
     //Endpoint para actualizar datos
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> update(@RequestBody Cliente clienteUpdate, @PathVariable("id") Long id){
+    public ResponseEntity<Cliente> update(@RequestBody Cliente clienteUpdate, @PathVariable("id") Long id) throws ResourceNotFoundException {
         return new ResponseEntity<>(this.clienteService.update(clienteUpdate, id),HttpStatus.OK );
     }
 }

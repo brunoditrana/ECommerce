@@ -13,7 +13,7 @@ import java.util.List;
 public class Cliente {
 
     @Id
-    @GeneratedValue                    //Al ID lo genera la base de datos NO aca(para eso esta linea)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)                    //Al ID lo genera la base de datos NO aca(para eso esta linea)
     private Long id;
 
     //MAPEO

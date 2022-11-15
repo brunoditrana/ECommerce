@@ -2,6 +2,7 @@ package com.deg.facturacion.service;
 
 import ch.qos.logback.core.net.server.Client;
 import com.deg.facturacion.exception.ResourceAlreadyExistsException;
+import com.deg.facturacion.exception.ResourceNotFoundException;
 import com.deg.facturacion.model.Cliente;
 import com.deg.facturacion.repository.ClienteRepository;
 import com.deg.facturacion.response.ClienteResponse;
@@ -56,7 +57,7 @@ public class ClienteService {
             return null;
 
     }
-        // Buscar por id
+        // BUSCAR POR ID
     public Optional<Cliente> findById(Long id) {
 
             return this.clienteRepository.findById(id);
@@ -64,19 +65,22 @@ public class ClienteService {
 
     }
 
-    //ACTUALIZAR DATOS DE UN CLIENTE
-    public Cliente update(Cliente cliente,Long id)  {   // throws ResourceNotFoundException
-        Optional<Cliente> clienteBD = this.clienteRepository.findById(id);
-        if (clienteBD.isPresent()){
-            Cliente cli = clienteBD.get();
-            cli.setApellido(cliente.getApellido());
-            cli.setNombre(cliente.getNombre());
-            return create(cli);
-        }else {
-            return null;
-            //throw new ResourceNotFoundException("El cliente no existe");
+    // ACTUALIZAR UN CLIENTE
+    public Cliente update(Cliente updateCliente, Long id) throws ResourceNotFoundException {
+        if (id <= 0) {
+            throw new IllegalArgumentException("El id es incorrecto");
         }
+        //this.clienteRepository.validate(updateCliente)
+
+        Cliente client = this.clienteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("El cliente con el id: " + id + " no existe en la Base de Datos"));
+        client.setDni(updateCliente.getDni());
+        client.setNombre(updateCliente.getNombre());
+        client.setApellido(updateCliente.getApellido());
+        client.setFecha_nacimiento(updateCliente.getFecha_nacimiento());
+        return  this.clienteRepository.save(client);
     }
+
 
     // PARA ELIMINAR UN CLIENTE
     public void delete(Long id){
